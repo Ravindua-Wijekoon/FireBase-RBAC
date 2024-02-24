@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title> Registration </title>
-    <link rel="stylesheet" href="new-css.css">
+    <link rel="stylesheet" href="style/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
@@ -32,11 +32,11 @@
                     </div>
                     <div class="input-box">
                         <span class="details">Password</span>
-                        <input type="text" placeholder="Enter your password" id="signup-password" required>
+                        <input type="password" placeholder="Enter your password" id="signup-password" required>
                     </div>
                     <div class="input-box">
                         <span class="details">Confirm Password</span>
-                        <input type="text" placeholder="Confirm your password" id="conf-password" required>
+                        <input type="password" placeholder="Confirm your password" id="conf-password" required>
                     </div>
                 </div>
                 <div class="role-details">
@@ -100,29 +100,36 @@
         var contact = document.getElementById("phone-num").value;
         var conPassord = document.getElementById("conf-password").value;
 
-        try {
-            const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-            // Signed up
-            const user = userCredential.user;
+        if (password == conPassord) {
+            try {
+                const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+                // Signed up
+                const user = userCredential.user;
 
-            // Add a new document to the collection
-            const docRef = await addDoc(collection(db, "Students"), {
-                name: name,
-                email: email,
-                password: password,
-                contactNumber: contact,
-                role: role
-            });
-            console.log("Document written with ID: ", docRef.id);
+                // Add a new document to the collection
+                const docRef = await addDoc(collection(db, "Students"), {
+                    name: name,
+                    email: email,
+                    password: password,
+                    contactNumber: contact,
+                    role: role
+                });
+                console.log("Document written with ID: ", docRef.id);
 
-            alert("Registration Successful");
-            location.reload();
-        } catch (error) {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            console.error("Error: ", errorMessage);
-            alert(errorMessage);
+                alert("Registration Successful");
+                location.reload();
+            } catch (error) {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                console.error("Error: ", errorMessage);
+                alert(errorMessage);
+            }
+
+        } else {
+            alert("Password not Match")
         }
+
+
     });
 
 
