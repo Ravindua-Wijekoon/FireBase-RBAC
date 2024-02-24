@@ -1,27 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 
 <head>
     <meta charset="UTF-8">
+    <title> Login </title>
+    <link rel="stylesheet" href="new-css.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 
 <body>
-
-    <div class="main-box">
-        <form id="login-form">
-            <div class="login">Login</div>
-            <input type="text" name="username" id="login-email" placeholder="User Name">
-            <input type="password" name="password" id="login-password" placeholder="Password">
-            <button type="submit" id="login">Login</button>
-
-        </form>
+    <div class="container">
+        <div class="title">Login</div>
+        <div class="content">
+            <form action="#">
+                <div class="user-details">
+                    <div class="input-box">
+                        <span class="details">Email</span>
+                        <input type="text" placeholder="Enter your email" id="login-email" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Password</span>
+                        <input type="text" placeholder="Enter your password" id="login-password" required>
+                    </div>
+                </div>
+                <div class="button">
+                    <input type="submit" id="login" value="Login">
+                </div>
+            </form>
+        </div>
     </div>
 
 </body>
-
 
 <script type="module">
     // Import the functions you need from the SDKs you need
@@ -84,7 +93,7 @@
 
                         if (role == "student") {
                             window.location.href = "student-dash.html";
-                        } else if (role == "lecture") {
+                        } else if (role == "lecturer") {
                             window.location.href = "lec-dash.html";
                         }
                     } else {
