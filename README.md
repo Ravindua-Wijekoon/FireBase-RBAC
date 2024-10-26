@@ -26,4 +26,4 @@ This project is a role-based access control system using **Firebase** as the dat
 1. **Clone the Repository**
    ```bash
    git clone https://github.com/Ravindua-Wijekoon/FireBase-RBAC.git
-   cd role-based-access-system
+   cd FireBase RBAC
